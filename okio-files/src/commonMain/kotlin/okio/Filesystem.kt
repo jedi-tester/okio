@@ -89,6 +89,9 @@ abstract class Filesystem {
    * [IOException]. Typically atomic moves are not possible if the paths are on different
    * logical devices (filesystems).
    *
+   * If [target] exists, it is deleted with the move. On filesystems that do not support atomic
+   * replacement this operation may be performed in non-atomic steps.
+   *
    * @throws IOException if the move cannot be performed, or cannot be performed atomically. Moves
    *     fail if the source doesn't exist, if the target is not writable, if the target already
    *     exists and cannot be replaced, or if the move would cause physical or quota limits to be
